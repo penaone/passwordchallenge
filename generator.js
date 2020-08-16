@@ -1,9 +1,9 @@
 // Assignment code here
 
-let smallCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
-let upperCase = ["A", "B", "C", "D", "F", "G", "H", "I", "J", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
-let specialCharacters = ["#", "%", "*","!","@","^","$"];
-let numberChoices = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
+var smallCase = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+var upperCase = ["A", "B", "C", "D", "F", "G", "H", "I", "J", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
+var specialCharacters = ["#", "%", "*","!","@","^","$"];
+var numberChoices = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "0"];
 console.log(smallCase);
 console.log(upperCase);
 console.log(specialCharacters);
@@ -38,7 +38,8 @@ function pswdChoices() {
     "Push Okay if you are including numbers (0-9)"
   );
 
-  if (smallCaseletters === false &&
+  if (
+    smallCaseletters === false &&
     upperCaseletters === false &&
     specialKeyCharacters === false &&
     wholenumbers === false)
@@ -50,7 +51,6 @@ function pswdChoices() {
 
   // store user input in a Object
   var pswdChoices = {
-
   length: length,
   specialKeyCharacters: specialKeyCharacters,
   smallCaseletters: smallCaseletters,
@@ -59,7 +59,7 @@ function pswdChoices() {
   };
 
   return pswdChoices;
-  console.log(pswdChoices)
+}
 
   function gtRndm(arr) {
     var rndIdx = Math.floor(Math.random() * arr.length);
@@ -87,20 +87,19 @@ function pswdChoices() {
     // Pushing each individual array into larger array using 'if' statement
     if (choices.specialKeyCharacters) {
       potentialitems = potentialitems.concat(specialCharacters);
-      actualitems.push(gtRnd(specialCharacters));
+      actualitems.push(gtRndm(specialCharacters));
     }
 
     //Pushing upper Case array into larger array using 'if' statement
     if (choices.upperCaseletters) {
       potentialitems = potentialitems.concat(upperCase);
-      actualitems.push(gtRnd(upperCase));
+      actualitems.push(gtRndm(upperCase));
     }
 
     //Pushing lower Case array into larger array using 'if' statement
     if (choices.smallCaseletters) {
       potentialitems = potentialitems.concat(smallCase);
       actualitems.push(gtRndm(smallCase));
-      console.log(actualitems);
 
     }
 
@@ -137,8 +136,8 @@ function pswdChoices() {
     passwordText.value = password;
     return;
   }
+  
 
 
   // Add event listener to generate button
   generateBtn.addEventListener("click", writePassword);
-}
