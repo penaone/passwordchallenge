@@ -22,5 +22,5 @@ Challenges faced include correctly formatting the functions.
 The initial setup took time to decide.
 How to set-up arrays and then build them into one array.
 
-This was a great learning tool. Using the push command.
+This was a great learning tool. Using the push command.git
 
