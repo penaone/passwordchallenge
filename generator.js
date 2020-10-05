@@ -51,7 +51,7 @@ function pswdChoices() {
 
   // store user input in a Object
   var pswdChoices = {
-  length: length,
+  pwlength: length,
   specialKeyCharacters: specialKeyCharacters,
   smallCaseletters: smallCaseletters,
   upperCaseletters: upperCaseletters,
@@ -64,9 +64,9 @@ function pswdChoices() {
   function gtRndm(arr) {
     var rndIdx = Math.floor(Math.random() * arr.length);
     var rndElm = arr[rndIdx];
-
+    console.log(rndElm);
     return rndElm;
-    consolelog(rndElm)
+    
   }
 
   // password generation Function from input
@@ -87,6 +87,7 @@ function pswdChoices() {
     // Pushing each individual array into larger array using 'if' statement
     if (choices.specialKeyCharacters) {
       potentialitems = potentialitems.concat(specialCharacters);
+
       actualitems.push(gtRndm(specialCharacters));
     }
 
@@ -109,17 +110,22 @@ function pswdChoices() {
       potentialitems = potentialitems.concat(numberChoices);
       actualitems.push(gtRndm(numberChoices));
     }
-    // iteration using password length
-    for (var i = 0; i < choices.length; i++) {
-      var potentialitems = gtRndm(potentialitems);
 
-      result.push(potentialitems);
-    }
-
-    // Make sure one of each requested item in the result
+     // Make sure one of each requested item in the result
     for (var i = 0; i < actualitems.length; i++) {
-      result[i] = actualitems[i];
+      result.push(actualitems[i]);
     }
+    // iteration using password length
+    // for (var i = 0; i < choices.length; i++) {
+    //   var potentialitems = gtRndm(potentialitems);
+
+    //   result.push(potentialitems);
+    // }
+
+   while(result.length < choices.pwlength){
+     result.push(gtRndm(potentialitems));
+   }
+  
 
     return result.join("");
 
@@ -136,8 +142,5 @@ function pswdChoices() {
     passwordText.value = password;
     return;
   }
-  
-
-
   // Add event listener to generate button
   generateBtn.addEventListener("click", writePassword);
