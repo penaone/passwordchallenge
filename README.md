@@ -18,6 +18,7 @@ The page is deployed at https://penaone.github.io/passwordchallenge/
 image:
 ![]./passwordchallenge/image/pswdscreenshot
 
+
 Challenges faced include correctly formatting the functions.
 The initial setup took time to decide.
 How to set-up arrays and then build them into one array.
